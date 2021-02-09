@@ -4,6 +4,10 @@
 
    Tutorial page for EZButton: https://arduinogetstarted.com/tutorials/arduino-button-library
 
+   This example:
+     + uses debounce for multiple buttons.
+     + reads state of multiple buttons
+     + detects the pressed and released events of multiple buttons
 */
 //define libraries
 #include <AlaLedRgb.h>
@@ -54,6 +58,12 @@ int frontLEDS[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 int leftLEDS[] = {9, 10, 11, 12, 13, 14, 15, 16};
 int rightLEDS[] = {17, 18, 19, 20, 21, 22, 23, 24};
 int backLEDS[] = {25, 26, 27, 28, 29, 30};
+
+
+//created an array containing the arrays identifying group of LEDS for mode1
+
+
+
 
 //array of lEDS to work with the FASTLed library
 CRGB leds[NUM_LEDS];
@@ -174,8 +184,8 @@ void loop() {
   if (button1.isPressed()) {
     FastLED.clear();  // clear all pixel data
     FastLED.show();
-    //  Serial.println("The button is pressed");
-    updateAnimation();
+    //Serial.println("Mode1");
+    //updateAnimation();
   }
 
   //if button 2 pressed counter will increment for either mode1 or mode 2 state then clear LED strip and start the animation .
@@ -205,6 +215,7 @@ void loop() {
   if (button1count == 1 && button2count == 0) {
     lightsforwardOnly();
     Serial.println("Mode1A forward lights On");
+    Serial.println(button2count);
   }
 
   else  if (button1count == 1 && button2count == 1) {
@@ -231,6 +242,8 @@ void loop() {
   if (button1count == 2) {
     // lightsOnAll();
     Serial.println("Mode2A On");
+    Serial.println(button2count);
+    updateAnimation();
     mode2A();
   }
 
