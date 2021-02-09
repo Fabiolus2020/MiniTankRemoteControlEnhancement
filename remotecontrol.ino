@@ -4,10 +4,6 @@
 
    Tutorial page for EZButton: https://arduinogetstarted.com/tutorials/arduino-button-library
 
-   This example:
-     + uses debounce for multiple buttons.
-     + reads state of multiple buttons
-     + detects the pressed and released events of multiple buttons
 */
 //define libraries
 #include <AlaLedRgb.h>
