@@ -205,7 +205,7 @@ void loop() {
     //   updateAnimation2();
     //  }
 
-    // if (button3.isPressed() && button1count == 2) {
+    // if (button3.isPressed() && button1count == 1) {
     //  if (animation2 <= 1) {
     //    animation2 = 21;
     // }
@@ -214,7 +214,7 @@ void loop() {
 
   }
 
-  if (button3.isPressed() && button1count == 1) {
+  if (button3.isPressed() && button1count == 2) {
     FastLED.clear();  // clear all pixel data
     FastLED.show();
     animation2--;
