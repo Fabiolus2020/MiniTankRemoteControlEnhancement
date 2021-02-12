@@ -176,16 +176,14 @@ void loop() {
   if (button2.isPressed() && button1count == 1) {
     FastLED.clear();  // clear all pixel data
     FastLED.show();
-    //if (animation1 >= 5) {
-    //  animation1 = 1;
-    // }
+    if (animation1 >= 5) {
+      animation1 = 1;
+     }
 
-    animation1++;
+   else animation1++;
   }
 
-  if (animation1 >= 6) {
-    animation1 = 1;
-  }
+
 
   if (button2.isPressed() && button1count == 2) {
     FastLED.clear();  // clear all pixel data
@@ -194,8 +192,6 @@ void loop() {
       animation2 = 0;
     }
     animation2++;
-    updateAnimation2();
-
   }
 
 
@@ -204,9 +200,9 @@ void loop() {
     FastLED.clear();  // clear all pixel data
     FastLED.show();
     if (animation1 <= 1) {
-      animation1 = 6;
+      animation1 = 5;
     }
-    animation1--;
+  else  animation1--;
   }
 
 
@@ -216,7 +212,6 @@ void loop() {
     }
     animation2--;
     updateAnimation2();
-
   }
 
 
@@ -246,14 +241,8 @@ void loop() {
 
 
   if (button1count == 2) {
-
-    if (animation2 >= 21) {
-      animation2 = 0;
-    }
-
     updateAnimation2();
     mode2A();
-
   }
 
   //Serial.println(button1count);
