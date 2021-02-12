@@ -11,7 +11,8 @@
 //create object representing led strip to work with ALA library
 AlaLedRgb rgbStrip;
 
-//initial value of animation out of 21
+//initial value of animation1 and 2 //animation1 is to control counter to cycle throughtMode1(frontlight,backlight,left,rightlight) 
+//animation2 is a counter to cycle through the ALA predefined templates 
 int animation1 = 1;
 int animation2 = 0;
 
@@ -60,7 +61,7 @@ ezButton button3(A3);  // create ezButton object that attach to pin 8;
 
 
 
-//I created functions that represent the 5 differents template in Mode1, lights for the front, lights for the back, left,right and all light bright white.
+//I created 5 functions that represent the 5 differents template in Mode1, lights for the front, lights for the back, left,right and all light bright white.
 //function to lit all lights
 void lightsOnAll() {
   for (int i = 0; i < 30; i++)
@@ -153,6 +154,13 @@ void loop() {
   unsigned long button1count = button1.getCount();
 
 
+//the below works but there are 2 observation made. When pressing button 1 initially I set to mode 1 then when pushing button1 it increments but 
+//I observe the animation2 counter jump to number 255
+//another observation is that when pressing button 1 in mode1 it cycle forward throught the patterns but it reset back to 2 when it reaches 5 but it should reset to 1,
+//this cause issue not being able to display one parttern from mode 1 since it goes from 2 to 5 instead of 1 to 5. 
+//If I use button 3 in mode1 it decrement the animation1 counter but observe going from 1 to 4 only but should be 1 to 5. 
+
+
   //if button 1 is pressed counter1 will increment then look to see if over 3 and reset if needed then clear LED strip.
   if (button1.isPressed()) {
     animation1 = 1;
@@ -232,6 +240,7 @@ void loop() {
     }
   }
 
+
   if (button1count == 2) {
 
     if (animation2 >= 21) {
@@ -243,7 +252,7 @@ void loop() {
 
   }
 
-
+   //Serial.println(button1count);
   Serial.println(animation1);
   Serial.println(animation2);
 
