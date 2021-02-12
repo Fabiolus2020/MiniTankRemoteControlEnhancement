@@ -14,7 +14,7 @@ AlaLedRgb rgbStrip;
 //initial value of animation1 and 2 //animation1 is to control counter to cycle throughtMode1(frontlight,backlight,left,rightlight)
 //animation2 is a counter to cycle through the ALA predefined templates
 int animation1 = 1;
-int animation2 = 0;
+int animation2;
 
 //array containing all templates from the ALA library for Mode 2
 int animList[] = {
@@ -163,12 +163,13 @@ void loop() {
 
   //if button 1 is pressed counter1 will increment then look to see if over 3 and reset if needed then clear LED strip.
   if (button1.isPressed()) {
+    FastLED.clear();  // clear all pixel data
+    FastLED.show();
     animation1 = 1;
     animation2 = 0;
     if (button1count >= 3)
       button1.resetCount();
-    FastLED.clear();  // clear all pixel data
-    FastLED.show();
+
 
   }
 
@@ -183,7 +184,7 @@ void loop() {
     else animation1++;
   }
 
- else if (button2.isPressed() && button1count == 2) {
+  else if (button2.isPressed() && button1count == 2) {
     FastLED.clear();  // clear all pixel data
     FastLED.show();
     if (animation2 >= 20) {
@@ -200,7 +201,7 @@ void loop() {
     if (animation1 <= 1) {
       animation1 = 5;
     }
-    else  animation1--;
+    else animation1--;
   }
 
 
@@ -245,6 +246,7 @@ void loop() {
   }
 
   //Serial.println(button1count);
+  Serial.println(button1count);
   Serial.println(animation1);
   Serial.println(animation2);
 
