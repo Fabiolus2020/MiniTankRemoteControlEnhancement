@@ -13,7 +13,7 @@ AlaLedRgb rgbStrip;
 
 //initial value of animation out of 21
 int animation1 = 1;
-int animation2 = 1;
+int animation2 = 0;
 
 //array containing all templates from the ALA library for Mode 2
 int animList[21] = {
@@ -156,7 +156,7 @@ void loop() {
   //if button 1 is pressed counter1 will increment then look to see if over 3 and reset if needed then clear LED strip.
   if (button1.isPressed()) {
     animation1 = 1;
-    animation2 = 2;
+    animation2 = 0;
     if (button1count >= 3)
       button1.resetCount();
     FastLED.clear();  // clear all pixel data
@@ -165,27 +165,30 @@ void loop() {
   }
 
   //if button 2 is pressed and button1counter will increment for either mode1 or mode 2 state then clear LED strip and start the animation .
-  if (button2.isPressed()) {
+  if (button2.isPressed()&& button1count == 1) {
     FastLED.clear();  // clear all pixel data
     FastLED.show();
     if (animation1 >= 5) {
       animation1 = 1;
     }
+    animation1++;
+     }
 
     if (button2.isPressed() && button1count == 2) {
       FastLED.clear();  // clear all pixel data
       FastLED.show();
       if (animation2 >= 21) {
-        animation2 = 1;
+        animation2 = 0;
       }
-
+    animation2++;
+   updateAnimation2();
 
     }
-    animation1++;
-    animation2++;
-    updateAnimation2();
+   // animation1++;
+   // animation2++;
+   // updateAnimation2();
 
-  }
+ 
 
   //if button 3 pressed counter will decrement for mode 2 only it can cycle 21 led templates.
   if (button3.isPressed() && button1count == 1) {
@@ -199,7 +202,7 @@ void loop() {
   }
 
   if (button3.isPressed() && button1count == 2) {
-    if (animation2 <= 1) {
+    if (animation2 <= 0) {
       animation2 = 21;
     }
     animation2--;
@@ -212,9 +215,9 @@ void loop() {
 
   //the above statements are to control Mode1 and Mode2, mode 1 is to control white leds front, back, left, right, all. Mode 2 is to enable showcase of different leds templates
   if (button1count == 1)  {
-    if (animation1 >= 5) {
-      animation1 = 1;
-    }
+    //if (animation1 >= 5) {
+     // animation1 = 1;
+   // }
 
     if (animation1 == 1) {
       lightsforwardOnly();
