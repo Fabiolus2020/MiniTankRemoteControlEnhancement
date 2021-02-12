@@ -165,30 +165,28 @@ void loop() {
   }
 
   //if button 2 is pressed and button1counter will increment for either mode1 or mode 2 state then clear LED strip and start the animation .
-  if (button2.isPressed()&& button1count == 1) {
+  if (button2.isPressed() && button1count == 1) {
     FastLED.clear();  // clear all pixel data
     FastLED.show();
     if (animation1 >= 5) {
       animation1 = 1;
     }
     animation1++;
-     }
+  }
 
-    if (button2.isPressed() && button1count == 2) {
-      FastLED.clear();  // clear all pixel data
-      FastLED.show();
-      if (animation2 >= 21) {
-        animation2 = 0;
-      }
-    animation2++;
-   updateAnimation2();
-
+  if (button2.isPressed() && button1count == 2) {
+    FastLED.clear();  // clear all pixel data
+    FastLED.show();
+    if (animation2 >= 21) {
+      animation2 = 0;
     }
-   // animation1++;
-   // animation2++;
-   // updateAnimation2();
+    animation2++;
+    updateAnimation2();
 
- 
+  }
+
+
+
 
   //if button 3 pressed counter will decrement for mode 2 only it can cycle 21 led templates.
   if (button3.isPressed() && button1count == 1) {
@@ -198,7 +196,6 @@ void loop() {
       animation1 = 5;
     }
     animation1--;
-    updateAnimation2();
   }
 
   if (button3.isPressed() && button1count == 2) {
@@ -211,13 +208,8 @@ void loop() {
   }
 
 
-
-
   //the above statements are to control Mode1 and Mode2, mode 1 is to control white leds front, back, left, right, all. Mode 2 is to enable showcase of different leds templates
   if (button1count == 1)  {
-    //if (animation1 >= 5) {
-     // animation1 = 1;
-   // }
 
     if (animation1 == 1) {
       lightsforwardOnly();
@@ -243,7 +235,7 @@ void loop() {
   if (button1count == 2) {
 
     if (animation2 >= 21) {
-      animation2 = 1;
+      animation2 = 0;
     }
 
     updateAnimation2();
