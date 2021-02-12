@@ -178,40 +178,39 @@ void loop() {
     FastLED.show();
     if (animation1 >= 5) {
       animation1 = 1;
-     }
+    }
 
-   else animation1++;
+    else animation1++;
   }
 
-
-
-  if (button2.isPressed() && button1count == 2) {
+ else if (button2.isPressed() && button1count == 2) {
     FastLED.clear();  // clear all pixel data
     FastLED.show();
-    if (animation2 >= 21) {
+    if (animation2 >= 20) {
       animation2 = 0;
     }
-    animation2++;
+    else animation2++;
   }
-
 
   //if button 3 pressed counter will decrement for mode 2 only it can cycle 21 led templates.
   if (button3.isPressed() && button1count == 1) {
     FastLED.clear();  // clear all pixel data
     FastLED.show();
+
     if (animation1 <= 1) {
       animation1 = 5;
     }
-  else  animation1--;
+    else  animation1--;
   }
 
 
   if (button3.isPressed() && button1count == 2) {
+    FastLED.clear();  // clear all pixel data
+    FastLED.show();
     if (animation2 <= 0) {
-      animation2 = 21;
+      animation2 = 20;
     }
-    animation2--;
-    updateAnimation2();
+    else animation2--;
   }
 
 
