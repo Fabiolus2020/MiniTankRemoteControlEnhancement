@@ -29,8 +29,8 @@ typedef struct package Package;
 Package data;
 
 // Define Joystick Connections
-#define joyX A0
-#define joyY A1
+#define joyY A0
+#define joyX A1
 #define readPot1 A2
 #define readPot2 A3
 #define ledModeStatusCount 6
