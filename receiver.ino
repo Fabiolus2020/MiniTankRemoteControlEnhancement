@@ -202,18 +202,17 @@ void modeOne()
   else  if (motordirection == 3)
   {
     // Motors are bacward
-    digitalWrite(in1, LOW);
-    digitalWrite(in2, HIGH);
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4, LOW);
-  }
-  else  if (motordirection == 4)
-  {
-    // Motors are bacward
     digitalWrite(in1, HIGH);
     digitalWrite(in2, LOW);
     digitalWrite(in3, LOW);
     digitalWrite(in4, HIGH);
+  }
+  else  if (motordirection == 4)
+  {
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4, LOW);
   }
   // Drive Motors
   analogWrite(enA, motorspeed1);
@@ -258,11 +257,11 @@ void modeTwo()
   if (data.joyposY < 470) {
 
     // Set Motor A forward
-    digitalWrite(in1, LOW);
-    digitalWrite(in2, HIGH);
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
     // Set Motor B backward
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4, LOW);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, HIGH);
 
     // Convert the increasing Y-axis readings for going forward from 550 to 1023 into 0 to 255 value for the PWM signal for increasing the motor speed
     motorSpeedA = map(data.joyposY, 470, 0, 0, 255);
@@ -271,12 +270,15 @@ void modeTwo()
 
   if (data.joyposY > 550) {
 
+
+
     // Set Motor A forward
-    digitalWrite(in1, HIGH);
-    digitalWrite(in2, LOW);
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
     // Set Motor B backward
-    digitalWrite(in3, LOW);
-    digitalWrite(in4, HIGH);
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4, LOW);
+
 
     // Convert the increasing Y-axis readings for going forward from 550 to 1023 into 0 to 255 value for the PWM signal for increasing the motor speed
     motorSpeedA = map(data.joyposY, 550, 1023, 0, 255);
@@ -329,11 +331,11 @@ void modeThree()
   if (data.joyposY < 400) {
 
     // Set Motor A forward
-    digitalWrite(in1, LOW);
-    digitalWrite(in2, HIGH);
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
     // Set Motor B backward
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4, LOW);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, HIGH);
 
     // Convert the increasing Y-axis readings for going forward from 550 to 1023 into 0 to 255 value for the PWM signal for increasing the motor speed
     motorSpeedA = map(data.potValue1, 0, 1023, 0, 255);
@@ -342,12 +344,15 @@ void modeThree()
 
   if (data.joyposY > 600) {
 
+
+
     // Set Motor A forward
-    digitalWrite(in1, HIGH);
-    digitalWrite(in2, LOW);
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
     // Set Motor B backward
-    digitalWrite(in3, LOW);
-    digitalWrite(in4, HIGH);
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4, LOW);
+
 
     // Convert the increasing Y-axis readings for going forward from 550 to 1023 into 0 to 255 value for the PWM signal for increasing the motor speed
     motorSpeedA = map(data.potValue1, 0, 1023, 0, 255);
@@ -399,13 +404,12 @@ void modeFour()
   // Y-axis used for left and right control
   //this is left
   if (data.joyposY < 400) {
-
     // Set Motor A forward
-    digitalWrite(in1, LOW);
-    digitalWrite(in2, HIGH);
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
     // Set Motor B backward
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4, LOW);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, HIGH);
 
     // Convert the increasing Y-axis readings for going forward from 550 to 1023 into 0 to 255 value for the PWM signal for increasing the motor speed
     motorSpeedA = map(data.potValue1, 0, 1023, 0, 255);
@@ -414,12 +418,15 @@ void modeFour()
 
   if (data.joyposY > 600) {
 
+
+
+
     // Set Motor A forward
-    digitalWrite(in1, HIGH);
-    digitalWrite(in2, LOW);
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
     // Set Motor B backward
-    digitalWrite(in3, LOW);
-    digitalWrite(in4, HIGH);
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4, LOW);
 
     // Convert the increasing Y-axis readings for going forward from 550 to 1023 into 0 to 255 value for the PWM signal for increasing the motor speed
     motorSpeedA = map(data.potValue1, 0, 1023, 0, 255);
