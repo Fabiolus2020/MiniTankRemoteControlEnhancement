@@ -15,3 +15,7 @@ Both orange buttons are to cycle backward/forward through the LED mode. There ar
 Well this is it for this project.
 
 Youtube: https://youtu.be/LOuQ4mGLLuU
+
+playlist:
+https://youtube.com/playlist?list=PLDzudFBYN10FTUcz2s5UMiT7itdn6a43q
+
