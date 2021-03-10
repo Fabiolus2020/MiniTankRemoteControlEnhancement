@@ -59,7 +59,10 @@ Robot part list
 
 1 x 12 volt battery pack
 
-1 x addressable individual LED strip WS2812b MODEL
+1 x addressable individual LED strip WS2812b MODEL (BTF-LIGHTING WS2812B RGB 5050SMD Individual
+Addressable 3.3FT 60Pixels/m Flexible Black PCB Full
+Color LED Pixel Strip Dream Color IP30 Non-Waterproof
+Making LED Screen, LED Wall Only DC5V ) 5 Volt!!!
 
 1 x nrf24l01 module
 
